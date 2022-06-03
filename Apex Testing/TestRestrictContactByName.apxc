@@ -1,0 +1,12 @@
+@isTest
+public class TestRestrictContactByName {
+    @isTest
+    public static void testContact(){
+        Contact ct = new Contact();
+        ct.LastName = 'INVALIDNAME';
+        Database.SaveResult res = Database.insert(ct,false);
+       System.assertEquals('The Last Name "INVLIDNAME" is not allowed for DMl', res.getErrors()[0].getMessage());
+        
+    }
+
+}
